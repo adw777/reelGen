@@ -1,0 +1,46 @@
+# Core dependencies
+torch>=2.4.0
+torchvision>=0.19.0
+numpy>=1.26.0
+Pillow==9.5.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+groq>=0.3.0
+moviepy>=1.0.3
+opencv-python>=4.10.0.84
+diffusers>=0.30.3
+transformers>=4.44.0
+accelerate>=0.34.2
+
+# Audio processing
+webrtcvad>=2.0.10
+pydub>=0.25.1
+librosa>=0.10.1
+soundfile>=0.12.1
+aeneas>=1.7.3
+SpeechRecognition>=3.10.0
+
+# Image and video processing
+imageio>=2.34.2
+imageio-ffmpeg>=0.5.1
+
+# Optional optimizations
+xformers>=0.0.23  # For improved CUDA performance
+optimum-quanto>=1.0.0  # For model quantization
+
+# Development and debugging
+tqdm>=4.66.5
+logging>=0.5.1.2
+
+# Install with:
+# pip install -r requirements.txt
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+
+# added for auto-gen captions
+opencv-python 
+tqdm 
+openai-whisper 
+moviepy
+customtkinter
+python-dotenv
