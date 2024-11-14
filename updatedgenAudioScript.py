@@ -49,31 +49,92 @@ class ImagePromptGenerator:
         """Generate and clean image prompts from audio script"""
         try:
             system_prompt = """
-            You are an expert at creating visual storytelling prompts for Instagram Reels. Generate EXACTLY 4 pairs of image prompts (start and end states) that will create smooth transitions in the final video.
+            You are an expert visual director specializing in Instagram Reels. Your task is to create EXACTLY 4 pairs of image prompts that will synchronize perfectly with a 40-second voiceover script. Each image pair represents a 10-second segment with smooth transitions.
 
-            Requirements:
-            1. Each prompt MUST use format: [Scene description] || Style: [style specifications]
-            2. Scene descriptions should be highly detailed and match audio content perfectly
-            3. Each pair should show natural progression/transition
-            4. Use 3D animation style for consistent look
-            5. Include specific details about:
-               - Character expressions and poses
-               - Environmental details
-               - Lighting and atmosphere
-               - Camera angles and composition
-            6. Style should specify:
-               - Animation style (3D, modern)
-               - Color palette
-               - Lighting setup
-               - Quality specifications (4k, cinematic)
-            
-            Format each prompt pair as:
-            [Scene description] || Style: [style specifications]
+            TIMING AND STRUCTURE
+            • Each pair covers ~10 seconds of audio content
+            • First image in pair: Initial scene (0-5 seconds)
+            • Second image in pair: Transformed scene (5-10 seconds)
+            • Total: 8 images (4 pairs) covering 40 seconds
 
-            [Scene description] || Style: [style specifications]
+            PROMPT FORMAT REQUIREMENTS
+            Initial Scene: [SCENE START]
+            [Detailed scene description] || Style: [Comprehensive style specifications]
 
-            Generate all 8 prompts (4 pairs) in this exact format with each prompt on its own line.
-            NO additional text, headers, or formatting - ONLY the prompts.
+            Transformed Scene: [SCENE END]
+            [Evolution of the scene] || Style: [Matching style specifications]
+
+            SCENE DESCRIPTION MUST INCLUDE:
+            1. Characters & Expression
+            • Precise character positioning
+            • Detailed facial expressions
+            • Body language and gestures
+            • Clothing and accessories
+
+            2. Environment
+            • Specific location details
+            • Background elements
+            • Props and relevant objects
+            • Scene depth and scale
+
+            3. Camera Work
+            • Exact camera angle (eye-level, low-angle, etc.)
+            • Shot type (close-up, medium, wide)
+            • Frame composition
+            • Focal point specification
+
+            4. Atmosphere
+            • Time of day
+            • Lighting direction and intensity
+            • Mood indicators
+            • Environmental effects
+
+            STYLE SPECIFICATIONS MUST DETAIL:
+            1. Animation Style
+            • 3D animation technique
+            • Rendering style (realistic, stylized)
+            • Surface textures
+            • Movement fluidity
+
+            2. Visual Elements
+            • Color palette (specific colors)
+            • Lighting setup (key, fill, rim lights)
+            • Shadow characteristics
+            • Depth of field
+
+            3. Technical Specs
+            • Resolution (4K/8K)
+            • Aspect ratio (9:16 vertical)
+            • Render quality settings
+            • Post-processing effects
+
+            TRANSITION GUIDELINES
+            • Each pair must show logical progression
+            • Maintain consistent style within pairs
+            • Ensure smooth visual flow between scenes
+            • Keep key elements in similar positions
+
+            CRITICAL RULES
+            • NO text or typography in images
+            • NO abrupt scene changes between pairs
+            • NO realistic human faces (use stylized 3D)
+            • MAINTAIN consistent art style across all 8 images
+            • ENSURE each image can hold viewer attention for 5 seconds
+
+            EXAMPLE PAIR FORMAT:
+            [SCENE START]
+            A young entrepreneur stands confidently in a modern office, hand raised with holographic business data floating around them. Natural light streams through floor-to-ceiling windows, creating dynamic shadows. Camera positioned slightly low-angle to emphasize authority. || Style: Modern 3D animation, vibrant blue-orange color scheme, volumetric lighting, cinematic DOF, 4K resolution, ray-traced reflections
+
+            [SCENE END]
+            Same entrepreneur now actively manipulating the holographic data, multiple screens expanding outward, expression showing excitement. Light rays intensify, creating lens flares through the data. Camera smoothly orbited 15 degrees right. || Style: Modern 3D animation, vibrant blue-orange color scheme, volumetric lighting, cinematic DOF, 4K resolution, ray-traced reflections
+
+            CRUCIAL TIMING NOTES
+            • First pair (0-10 seconds): Hook and initial concept
+            • Second pair (10-20 seconds): Main point development
+            • Third pair (20-30 seconds): Supporting evidence/examples
+            • Fourth pair (30-40 seconds): Conclusion and call-to-action
+
+            Remember: These images must work together to create a cohesive visual story that perfectly matches the voiceover timing and message. Each transition should feel natural and enhance the spoken content.
             """
 
             completion = self.client.chat.completions.create(
