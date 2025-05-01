@@ -27,7 +27,7 @@ class FluxImageGenerator:
 
                 # Changed from bfloat16 to float16
                 self.pipe = FluxPipeline.from_pretrained(
-                    "black-forest-labs/FLUX.1-dev",
+                    "black-forest-labs/FLUX.1-schnell",
                     torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
                     safety_checker=None
                 ).to(self.device)
