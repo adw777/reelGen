@@ -18,6 +18,8 @@ reelGen is a complete content automation system that:
 
 The result is a ready-to-post Instagram Reel video that transforms any article into engaging social media content.
 
+Example Video: https://youtube.com/shorts/GVanEokYPSI?si=GITTT6zozbH_Qcya
+
 ## Project Structure
 
 - `app.py` - FastAPI server that exposes the pipeline as an API
