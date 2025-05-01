@@ -2,6 +2,9 @@ import os
 from groq import Groq
 import logging
 from typing import List, Optional
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -10,7 +13,7 @@ logger = logging.getLogger(__name__)
 class ImagePromptGenerator:
     def __init__(self):
         """Initialize with Groq API key"""
-        self.client = Groq(api_key="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")
+        self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
         
     def read_audio_script(self, script_id: str) -> Optional[str]:
         """Read the audio script file"""

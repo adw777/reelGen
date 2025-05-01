@@ -1,14 +1,17 @@
 import requests
 import os
 import logging
+from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+load_dotenv()
+
 class AudioGenerator:
     def __init__(self):
         self.VOICE_ID = "IKne3meq5aSn9XLyUdCD" # voice id from elevenlabs
-        self.API_KEY = "sk_73c5fc4ce4e8916eb713dc96177a2377b4412f80de951eff"
+        self.API_KEY = os.getenv("ELEVEN_LABS_API_KEY")
         self.CHUNK_SIZE = 1024
 
     def text_to_speech(self, text, output_path):

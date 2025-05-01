@@ -6,3 +6,4 @@ final
 img_prompts
 summaries
 test_output_20241111_195733
+.env

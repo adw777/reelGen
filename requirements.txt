@@ -32,10 +32,8 @@ optimum-quanto>=1.0.0  # For model quantization
 tqdm>=4.66.5
 logging>=0.5.1.2
 
-# Install with:
-# pip install -r requirements.txt
+# for CUDA utilization
 # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-
 
 # added for auto-gen captions
 opencv-python 
