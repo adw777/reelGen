@@ -4,6 +4,9 @@ from text_to_image import FluxImageGenerator
 import textwrap
 import logging
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -11,7 +14,7 @@ logger = logging.getLogger(__name__)
 class PromptImageGenerator:
     def __init__(self):
         """Initialize with Groq API and Flux generator"""
-        self.client = Groq(api_key="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")
+        self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
         self.image_generator = FluxImageGenerator()
         self.words_per_chunk = 25  # Adjust based on your needs
 
